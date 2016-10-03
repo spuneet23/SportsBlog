@@ -1,0 +1,36 @@
+{{> header}}
+
+{{> navbar}}
+ 
+ <div class="container">
+  <div class="row">
+    <div class=" col-md-10 col-md-offset-1">
+      <br>
+      <a class="btn btn-tiny btn-primary" href="/manage/articles/add">Create Articles</a>
+      <h1>{{title}}  <small><a href="/manage/categories">Manage Categories</a></small></h1>
+      <br>
+     <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Article Title</th>
+        <th>Category</th>
+        <th>Date Published</th>
+        <th>Author</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Title</td>
+        <td>Category</td>
+        <td>Time</td>
+        <td>Author</td>
+        <td><a class="btn btn-tiny btn-default" href="/manage/articles/edit/1">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>
+
+{{> footer}}

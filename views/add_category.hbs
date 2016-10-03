@@ -1,0 +1,37 @@
+{{> header}}
+
+{{> navbar}}
+  
+   <div class="container">
+	  <div class="row">
+	    <div class=" col-md-10 col-md-offset-1">
+
+          <h1>{{title}}</h1>
+         {{#if errors}}
+	     <ul>
+	     {{#each errors}}
+	       <li class="alert alert-danger">{{msg}}</li>
+	      {{/each}}
+	     </ul>
+	     {{/if}}
+			  <form  method="post" action="/categories/add">
+			  <div class="form-group">
+			    <label  for="title">Title:</label>
+			      <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+			  </div>
+			  <div class="form-group">
+			    <label  for="desc">Description:</label> 
+			      <textarea class="form-control" name="desc"></textarea>
+			  </div>
+			  <div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <input type="submit" class="btn btn-primary" value="SAVE">
+			      <a class="btn btn-default" id="back" href="/manage/categories">BACK</a>
+			    </div>
+			  </div>
+			</form>
+	   </div>
+	  </div>
+ </div>
+
+{{> footer}}

@@ -1,0 +1,21 @@
+{{> header}}
+
+{{> navbar}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h1>{{title}}</h1>
+      <br>
+      <ul class="list-group">
+      {{#each categories}}
+        <li class="list-group-item">
+         <a href="/articles/category/{{_id}}" >{{title}}</a>
+        </li>
+     {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{{> footer}}
