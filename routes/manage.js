@@ -2,10 +2,20 @@ var express = require('express');
 var router = express.Router();
 
 Category = require('../models/Category.js');
+Article = require('../models/article.js');
 
 /* GET home page. */
 router.get('/articles', function(req, res, next) {
-  res.render('manage_articles', { title: 'Manage Articles' });
+     Article.getArticles(function(err, articles){
+      if(err) {
+        res.send(err);
+      } else {
+        res.render('manage_articles', {
+         title: 'Manage Articles' ,
+         articles: articles
+        });
+      }
+    });
 });
 
 router.get('/categories', function(req, res, next) {
@@ -23,7 +33,12 @@ router.get('/categories', function(req, res, next) {
 });
 
 router.get('/articles/add', function(req, res, next) {
-  res.render('add_article', { title: 'Create Article' });
+  Category.getCategories(function(err, categories){
+     res.render('add_article', {
+      title: 'Create Article',
+      categories: categories });
+  });
+  
 });
 
 router.get('/categories/add', function(req, res, next) {

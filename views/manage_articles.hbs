@@ -20,13 +20,15 @@
       </tr>
     </thead>
     <tbody>
+     {{#each articles}}
       <tr>
-        <td>Title</td>
-        <td>Category</td>
-        <td>Time</td>
-        <td>Author</td>
-        <td><a class="btn btn-tiny btn-default" href="/manage/articles/edit/1">Edit</a></td>
+        <td>{{title}}</td>
+        <td>{{category}}</td>
+        <td>{{created_at}}</td>
+        <td>{{author}}</td>
+        <td><a class="btn btn-tiny btn-default" href="/manage/articles/edit/{{_id}}">Edit</a></td>
       </tr>
+     {{/each}}
     </tbody>
   </table>
     </div>

@@ -18,7 +18,9 @@
 			  <div class="form-group">
 			    <label  for="category">Category:</label> 
 			      <select class="form-control" name="category">
-			      	<option>Body Building</option>
+			       {{#each categories}}
+			      	  <option>{{title}}</option>
+			       {{/each}}
 			      </select>
 			  </div>
 			   <div class="form-group">

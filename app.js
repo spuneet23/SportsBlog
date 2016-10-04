@@ -28,7 +28,7 @@ var app = express();
 // app.set('view engine', 'jade');
 app.engine('.hbs', handlebars({extname: '.hbs'}));
 app.set('view engine', '.hbs');
-
+app.locals.moment = require('moment');
 // handlebars.registerPartial('partial', fs.readFileSync(__dirname + '/views/partial.hbs', 'utf8'));
 // handlebars.registerPartials(__dirname + '/views/partials');
 

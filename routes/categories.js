@@ -52,18 +52,19 @@ router.post('/edit/:id', function(req,res){
 	req.checkBody('category_title', 'Title is required').notEmpty();
 
 	var errors = req.validationErrors();
-   console.log(errors);
+   // console.log("Errors"+errors);
 	if(errors){
 		res.render('edit_category', {
 			errors: errors,
 			title: "Edit Category"
 		});
 	} else {
+		// console.log("Hola");
 		var category = new Category();
 		var query = {_id: [req.params.id]};
 		var update = {title: req.body.category_title, description: req.body.category_desc};
-
-		Category.updateCategory( category, function(err,category ){
+        // console.log(update);
+		Category.updateCategory(query, update, {}, function(err,category ){
 			if(err) {
 				res.send(err);
 			} else {
@@ -73,5 +74,17 @@ router.post('/edit/:id', function(req,res){
 		})
 	}
 });
+
+
+router.delete('/delete/:id', function(req, res){
+	var query = {_id: [req.params.id]};
+	Category.remove(query, function(err) {
+		if(err) {
+			res.send(err);
+		} else {
+			res.status(204).send();
+		}
+	})
+})
 
 module.exports = router;
