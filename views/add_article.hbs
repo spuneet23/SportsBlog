@@ -6,26 +6,33 @@
 	  <div class="row">
 	    <div class=" col-md-10 col-md-offset-1">
           <h1>{{title}}</h1>
+          {{#if errors}}
+           <ul>
+            {{#each errors}}
+               <li class="alert alert-danger">{{msg}}</li>
+            {{/each}}
+            </ul>
+          {{/if}}
 			  <form  method="post" action="/articles/add">
 			  <div class="form-group">
 			    <label  for="title">Title:</label>
-			      <input type="text" class="form-control" id="title" placeholder="Enter title">
+			      <input type="text" class="form-control" name="title" placeholder="Enter title">
 			  </div>
 			  <div class="form-group">
 			    <label for="sub_title">Sub Title:</label>
-			      <input type="text" class="form-control" id="sub_title" placeholder="Enter Sub Title">
+			      <input type="text" class="form-control" name="subtitle" placeholder="Enter Sub Title">
 			  </div>
 			  <div class="form-group">
 			    <label  for="category">Category:</label> 
 			      <select class="form-control" name="category">
 			       {{#each categories}}
-			      	  <option>{{title}}</option>
+			      	  <option value="{{_id}}">{{title}}</option>
 			       {{/each}}
 			      </select>
 			  </div>
 			   <div class="form-group">
 			    <label  for="author">Author:</label>
-			      <input type="text" class="form-control" id="author" placeholder="Enter Author Name">
+			      <input type="text" class="form-control" name="author" placeholder="Enter Author Name">
 			  </div>
 			  <div class="form-group">
 			    <label  for="body">Body:</label> 

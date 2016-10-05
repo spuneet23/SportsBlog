@@ -6,33 +6,36 @@
 	  <div class="row">
 	    <div class=" col-md-10 col-md-offset-1">
           <h1>{{title}}</h1>
-			  <form  method="post" action="/articles/edit/1">
+			  <form  method="post" action="/articles/edit/{{article._id}}">
 			  <div class="form-group">
 			    <label  for="title">Title:</label>
-			      <input type="text" class="form-control" id="title" placeholder="Enter title">
+			      <input type="text" class="form-control" name="title" value="{{article.title}}">
 			  </div>
 			  <div class="form-group">
 			    <label for="sub_title">Sub Title:</label>
-			      <input type="text" class="form-control" id="sub_title" placeholder="Enter Sub Title">
+			      <input type="text" class="form-control" name="subtitle" value="{{article.subtitle}}">
 			  </div>
 			  <div class="form-group">
 			    <label  for="category">Category:</label> 
 			      <select class="form-control" name="category">
-			      	<option>Body Building</option>
+			        {{#each categories}}
+			      	  <option value="{{_id}}">{{title}}</option>
+			      	{{/each}}
 			      </select>
 			  </div>
 			   <div class="form-group">
 			    <label  for="author">Author:</label>
-			      <input type="text" class="form-control" id="author" placeholder="Enter Author Name">
+			      <input type="text" class="form-control" name="author" value="{{article.author}}">
 			  </div>
 			  <div class="form-group">
 			    <label  for="body">Body:</label> 
-			      <textarea class="form-control" name="body"></textarea>
+			      <textarea class="form-control" name="body" >{{article.body}}</textarea>
 			  </div>
 			  <div class="form-group"> 
 			    <div class="col-sm-offset-2 col-sm-10">
 			      <input type="submit" class="btn btn-primary" value="SAVE">
 			      <a class="btn btn-default" id="back" href="/manage/articles">BACK</a>
+			       <a class="btn btn-danger article-delete pull-right" data-article-id="{{article._id}}" data-csrf= locals._csrf>DELETE</a>
 			    </div>
 			  </div>
 			</form>

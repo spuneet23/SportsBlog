@@ -13,7 +13,6 @@
     <thead>
       <tr>
         <th>Article Title</th>
-        <th>Category</th>
         <th>Date Published</th>
         <th>Author</th>
         <th> </th>
@@ -23,7 +22,6 @@
      {{#each articles}}
       <tr>
         <td>{{title}}</td>
-        <td>{{category}}</td>
         <td>{{created_at}}</td>
         <td>{{author}}</td>
         <td><a class="btn btn-tiny btn-default" href="/manage/articles/edit/{{_id}}">Edit</a></td>

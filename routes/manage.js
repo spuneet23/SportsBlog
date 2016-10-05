@@ -47,7 +47,22 @@ router.get('/categories/add', function(req, res, next) {
 
 router.get('/articles/edit/:id', function(req, res, next) {
 
-  res.render('edit_article', { title: 'Edit Article' });
+Article.getArticleById([req.params.id], function(err, article){
+     if(err){
+      res.send(err);
+     }else {
+          // console.log(category);
+          Category.getCategories(function(err, categories){
+                res.render('edit_article', { 
+                title: 'Edit Article',
+                article: article,
+                categories:categories
+             });
+          });
+
+     }
+ });
+ 
 });
 
 router.get('/categories/edit/:id', function(req, res, next) {
